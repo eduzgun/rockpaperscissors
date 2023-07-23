@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')();
-
+const c = require('ansi-colors');
 /*
 code will go here
 */
@@ -53,19 +53,21 @@ const mainLoop = () => {
   let userScore = 0;
   let computerScore = 0;
   let userInput = "p";
+  console.log("Welcome to rock paper scissors in Javascript!");
   while (userInput === "p") {
-    console.log("Welcome to rock paper scissors in Javascript!");
+    
+    console.log("")
     const userChoice = getUserChoice();
     const computerChoice = getComputerChoice();
     const winner = checkWinner(userChoice, computerChoice);
     if (winner === "a") {
-      console.log(`${userChoice} vs ${computerChoice}, you win!`);
+      console.log(c.green(`${userChoice} vs ${computerChoice}, you win!`));
       userScore += 1;
     } else if (winner === "b") {
-      console.log(`${userChoice} vs ${computerChoice}, you lose..`);
+      console.log(c.red(`${userChoice} vs ${computerChoice}, you lose..`));
       computerScore += 1;
     } else {
-      console.log("A draw..");
+      console.log(c.yellow("A draw.."));
     }
     console.log(`Your score: ${userScore}`);
     console.log(`Computer's score: ${computerScore}`);
@@ -73,11 +75,11 @@ const mainLoop = () => {
   }
   console.log("");
   if (userScore > computerScore) {
-    console.log(`You won the series!  ${userScore}:${computerScore}`);
+    console.log(c.bgGreen(`You won the series!  ${userScore}:${computerScore}`));
   } else if (computerScore > userScore) {
-    console.log(`Computer won the series  ${computerScore}:${userScore}`);
+    console.log(c.bgRed(`Computer won the series  ${computerScore}:${userScore}`));
   } else {
-    console.log(`The series was a draw  ${userScore}:${computerScore}`);
+    console.log(c.bgYellow(`The series was a draw  ${userScore}:${computerScore}`));
   }
 };
 
