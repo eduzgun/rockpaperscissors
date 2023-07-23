@@ -1,8 +1,8 @@
 const each = require('jest-each').default;
 const { checkWinner } = require("./index.js");
 
-// Mock the prompt function to provide predefined user inputs
 
+// Mock the prompt function to provide predefined user inputs
 jest.mock('prompt-sync', () => {
     return () => jest.fn().mockReturnValueOnce('rock').mockReturnValueOnce('n');
   });
